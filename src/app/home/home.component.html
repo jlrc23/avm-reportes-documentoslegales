@@ -1,0 +1,62 @@
+<div class="mat-elevation-z8">
+  <table mat-table class="full-width-table" [dataSource]="dataSource" matSort aria-label="Elements">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>#</th>
+      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    </ng-container>
+    <ng-container matColumnDef="year">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Año</th>
+      <td mat-cell *matCellDef="let row">{{row.year}}</td>
+    </ng-container>
+    <ng-container matColumnDef="economic_number">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ECONOMIC NUMBER</th>
+      <td mat-cell *matCellDef="let row">{{row.economic_number}}</td>
+    </ng-container>
+    <ng-container matColumnDef="serial_number">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>SERIAL NUMBER</th>
+      <td mat-cell *matCellDef="let row">{{row.serial_number}}</td>
+    </ng-container>
+    <ng-container matColumnDef="plates">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>PLATES</th>
+      <td mat-cell *matCellDef="let row">{{row.plates}}</td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>STATUS</th>
+      <td mat-cell *matCellDef="let row">{{row.status}}</td>
+    </ng-container>
+    <ng-container matColumnDef="document_type">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>DOCUMENT TYPE</th>
+      <td mat-cell *matCellDef="let row">{{row.document_type}}</td>
+    </ng-container>
+    <ng-container matColumnDef="document_number">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>document_number</th>
+      <td mat-cell *matCellDef="let row">{{row.document_number}}</td>
+    </ng-container>
+    <ng-container matColumnDef="amount">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>amount</th>
+      <td mat-cell *matCellDef="let row">{{row.amount}}</td>
+    </ng-container>
+    <ng-container matColumnDef="created">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>created</th>
+      <td mat-cell *matCellDef="let row">{{row.created}}</td>
+    </ng-container>
+    <ng-container matColumnDef="issued">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>issued</th>
+      <td mat-cell *matCellDef="let row">{{row.issued}}</td>
+    </ng-container>
+    <ng-container matColumnDef="owner">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>owner</th>
+      <td mat-cell *matCellDef="let row">{{row.owner}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator #paginator
+      [length]="dataSource.data.length"
+      [pageIndex]="0"
+      [pageSize]="50"
+      [pageSizeOptions]="[25, 50, 100, 250]">
+  </mat-paginator>
+</div>
