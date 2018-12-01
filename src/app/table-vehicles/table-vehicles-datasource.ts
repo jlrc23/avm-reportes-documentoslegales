@@ -9,7 +9,7 @@ import {VehicleInterface} from '../interfaces/vehicle.interface';
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
-export class HomeDataSource extends DataSource<VehicleInterface> {
+export class TableVehiclesDataSource extends DataSource<VehicleInterface> {
   data: VehicleInterface[] = [];
   dataBehaviorSubject: BehaviorSubject<VehicleInterface[]> = new BehaviorSubject<VehicleInterface[]>([]);
 

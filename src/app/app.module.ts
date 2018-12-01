@@ -4,14 +4,24 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './home/home.component';
-import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
-import {HttpClientModule} from '@angular/common/http';
+import { TableVehiclesComponent } from './table-vehicles/table-vehicles.component';
+import {
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatMenuModule,
+  MatSidenavModule
+} from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+import { IconsComponent } from './icons/icons.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    TableVehiclesComponent,
+    IconsComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +30,11 @@ import {HttpClientModule} from '@angular/common/http';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    HttpClientModule
+    HttpClientModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
