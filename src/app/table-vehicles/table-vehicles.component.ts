@@ -9,8 +9,7 @@ import {FilterFormService} from '../services/filter-form.service';
 @Component({
   selector: 'app-table-vehicles',
   templateUrl: './table-vehicles.component.html',
-  styleUrls: ['./table-vehicles.component.css'],
-  providers: [ FilterFormService]
+  styleUrls: ['./table-vehicles.component.css']
 })
 export class TableVehiclesComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;

@@ -3,7 +3,12 @@
     <mat-icon (click)="toggleSidebar()"   class="cursor-pointer g-grey-light lighten-2 md-light">menu</mat-icon>
     <span> Vehicles</span>
     <span class="example-spacer"></span>
-    <mat-icon [matMenuTriggerFor]="mnuColumns">more_vert</mat-icon>
+    <mat-icon [matMenuTriggerFor]="menu">more_vert</mat-icon>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="toggleFilter()"> {{actionFilter}} Filters  </button>
+      <button mat-menu-item [matMenuTriggerFor]="mnuColumns">Columns</button>
+      <button mat-menu-item (click)="download()">  Download </button>
+    </mat-menu>
 
     <mat-menu #mnuColumns="matMenu">
       <button *ngFor="let column of settingsColumnsService.allColumns" mat-menu-item>

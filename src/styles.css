@@ -17,3 +17,7 @@ input[type=text]{
 .mat-form-field-infix{
   width: auto !important;
 }
+
+.invisible{
+  display: none;
+}
