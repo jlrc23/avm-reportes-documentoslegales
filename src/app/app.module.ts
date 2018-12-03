@@ -12,10 +12,11 @@ import {
   MatToolbarModule,
   MatIconModule,
   MatMenuModule,
-  MatSidenavModule
+  MatSidenavModule, MatInputModule, MatCheckboxModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { IconsComponent } from './icons/icons.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,8 @@ import { IconsComponent } from './icons/icons.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
@@ -34,7 +37,9 @@ import { IconsComponent } from './icons/icons.component';
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatInputModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
