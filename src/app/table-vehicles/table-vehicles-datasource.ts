@@ -73,6 +73,9 @@ export class TableVehiclesDataSource extends DataSource<VehicleInterface> {
       const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {
         case 'id': return compare(+a.id, +b.id, isAsc);
+        case 'economic_number': return compare(+a.economic_number, +b.economic_number, isAsc);
+        case 'year': return compare(+a.year, +b.year, isAsc);
+        case 'amount': return compare(+a.amount, +b.amount, isAsc);
         default: return 0;
       }
     });

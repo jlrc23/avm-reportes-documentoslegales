@@ -4,14 +4,15 @@ import {SettingDisplayColumnInterface} from '../interfaces/setting-display-colum
 import {SettingDisplayColumn} from '../class/setting-display-column';
 
 @Injectable()
-export class SettingsColumnsService {
-  public static ALL_COLUMNS: Array<string> = ['id', 'year', 'economic_number', 'serial_number', 'plates', 'status',    'document_type', 'document_number',    'amount',    'created',   'issued',    'owner'];
+export class SettingsColumnsService { //'id',
+  public static ALL_COLUMNS: Array<string> = [ 'economic_number', 'year', 'serial_number', 'plates', 'status',  'document_type', 'document_number',  'amount', 'created', 'issued',    'owner'];
   readonly loggerNamespaceClass = 'SettingsColumnsService';
 
   settingsDisplayedColumns: Map<string, SettingDisplayColumnInterface> = new Map<string, SettingDisplayColumnInterface>();
   displayedColumns: Array<string>;
   displayedFilterColumns: Array<string>;
-  showFilter = true;
+  showFilter = false;
+
   get allColumns() {
     return SettingsColumnsService.ALL_COLUMNS;
   }
@@ -19,7 +20,10 @@ export class SettingsColumnsService {
   constructor() {
     for(const column of this.allColumns ){
       console.log(`[SettingsColumnsService] column:`, column);
-      this.settingsDisplayedColumns.set(column, new SettingDisplayColumn(column,column));
+      const colSettings =  new SettingDisplayColumn(column,column);
+      if(colSettings.title == 'serial_number')
+        colSettings.visible = false;
+      this.settingsDisplayedColumns.set(column,colSettings);
     }
     this.displayedColumns = SettingsColumnsService.ALL_COLUMNS.filter((displayColumn) => this.settingsDisplayedColumns.get(displayColumn).visible);
     this.displayedFilterColumns = this.displayedColumns.map((displayColumn) => `${displayColumn}Filter`);

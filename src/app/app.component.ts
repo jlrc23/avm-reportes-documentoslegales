@@ -13,7 +13,7 @@ import {Convert2CSV} from './functions/convert2csv';
 })
 export class AppComponent implements OnInit {
   @ViewChild(MatSidenav) mainSideNav: MatSidenav;
-  public actionFilter = 'Hide';
+  public actionFilter: string;
 
   constructor(public sidebarService: SidebarService,
               public  settingsColumnsService: SettingsColumnsService,
@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.sidebarService.setSidebar(this.mainSideNav);
+    this.actionFilter = this.settingsColumnsService.showFilter?   'Hide':'Show';
   }
 
   public toggleSidebar(){
@@ -31,7 +32,6 @@ export class AppComponent implements OnInit {
   toggleFilter(){
     this.actionFilter = (this.actionFilter == 'Hide')? 'Show': 'Hide';
     this.settingsColumnsService.showFilter  = !this.settingsColumnsService.showFilter;
-    // this.settingsColumnsService.loadFilter();
   }
 
   download(){
