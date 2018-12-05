@@ -12,17 +12,19 @@ import {
   MatToolbarModule,
   MatIconModule,
   MatMenuModule,
-  MatSidenavModule, MatInputModule, MatCheckboxModule
+  MatSidenavModule, MatInputModule, MatCheckboxModule, MatSelectModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { IconsComponent } from './icons/icons.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableVehiclesComponent,
-    IconsComponent
+    IconsComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatSidenavModule,
     MatInputModule,
     MatCheckboxModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

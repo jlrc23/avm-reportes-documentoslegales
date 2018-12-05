@@ -9,7 +9,9 @@ export interface VehicleInterface {
   document_number: string;
   amount: string;
   created: string;
-  // date: string;
+  date: string;
+  type_currency: number;
+  other_document: string;
   issued: string;
   owner: string;
 
