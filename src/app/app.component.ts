@@ -12,6 +12,7 @@ import {Convert2CSV} from './functions/convert2csv';
   providers: [SettingsColumnsService, FilterFormService]
 })
 export class AppComponent implements OnInit {
+  filters:string[]=[];
   @ViewChild(MatSidenav) mainSideNav: MatSidenav;
   public actionFilter: string;
 

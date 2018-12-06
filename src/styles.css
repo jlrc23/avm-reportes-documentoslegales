@@ -25,7 +25,7 @@ input[type=text]{
 .cursor-pointer{
   cursor: pointer;
 }
-.mat-toolbar.mat-primary {
+.mat-toolbar.mat-primary, .mat-fab.mat-primary, .mat-flat-button.mat-primary, .mat-mini-fab.mat-primary, .mat-raised-button.mat-primary {
   background-color:#0B7D37 ;
 }
 mat-sidenav-content.mat-drawer-container{

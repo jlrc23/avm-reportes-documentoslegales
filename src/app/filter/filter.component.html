@@ -1,17 +1,26 @@
-<mat-form-field>
-  <mat-select placeholder="Favorite food">
-    <mat-option *ngFor="let food of foods" [value]="food.value">
-      {{food.viewValue}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
+<div class="wrapper-filter">
 
-<h4>Basic native select</h4>
-<mat-form-field>
-  <select matNativeControl required>
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="mercedes">Mercedes</option>
-    <option value="audi">Audi</option>
-  </select>
-</mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Documentos:" [formControl]="documentsSelected" multiple>
+      <mat-option *ngFor="let item of documentsCatalog" [value]="item.id">{{item.description}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Tipos de documento:" [formControl]="typesDocumentsSelected" multiple>
+      <mat-option *ngFor="let item of typesDocumentsCatalog" [value]="item.id">{{item.description}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <mat-select placeholder="A favor de:" [formControl]="ownersSelected" multiple>
+      <mat-option *ngFor="let item of ownersCatalog" [value]="item.id">{{item.description}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <br>
+  <button mat-raised-button color="primary" style="float: right">Filtrar</button>
+</div>
+

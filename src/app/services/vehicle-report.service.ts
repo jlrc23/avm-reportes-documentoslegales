@@ -16,4 +16,22 @@ export class VehicleReportService {
     return this.httpClient.get<VehicleInterface[]>(endPoint);
   }
 
+  getDocuments():Observable<any>{
+    const endPoint = environment.api + 'vehiclereport/getCatalog?type=documentTypes';
+    console.log(`Request to EndPoint:`, endPoint);
+    return this.httpClient.get<any>(endPoint);
+  }
+
+  getTipoDocumento():Observable<any>{
+    const endPoint = environment.api + 'vehiclereport/getCatalog?type=statuses';
+    console.log(`Request to EndPoint:`, endPoint);
+    return this.httpClient.get<any>(endPoint);
+  }
+
+  getOwners():Observable<any>{
+    const endPoint = environment.api + 'vehiclereport/getCatalog?type=owners';
+    console.log(`Request to EndPoint:`, endPoint);
+    return this.httpClient.get<any>(endPoint);
+  }
+
 }

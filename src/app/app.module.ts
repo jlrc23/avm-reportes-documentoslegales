@@ -12,7 +12,7 @@ import {
   MatToolbarModule,
   MatIconModule,
   MatMenuModule,
-  MatSidenavModule, MatInputModule, MatCheckboxModule, MatSelectModule
+  MatSidenavModule, MatInputModule, MatCheckboxModule, MatSelectModule, MatButtonModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { IconsComponent } from './icons/icons.component';
@@ -42,7 +42,8 @@ import { FilterComponent } from './filter/filter.component';
     MatSidenavModule,
     MatInputModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

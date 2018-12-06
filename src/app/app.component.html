@@ -1,7 +1,8 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <mat-icon (click)="toggleSidebar()"   class="cursor-pointer">menu</mat-icon>
-    <span> Vehicles</span>
+    <span> Vehicles </span>
+    <span><small *ngIf="filters.length>0"  style="float: right">>()</small></span>
     <span class="example-spacer"></span>
     <mat-icon [matMenuTriggerFor]="menu" class="cursor-pointer">more_vert</mat-icon>
     <mat-menu #menu="matMenu">
@@ -23,7 +24,7 @@
 </mat-toolbar>
 
 <mat-sidenav-container class="example-container">
-  <mat-sidenav   mode="side">
+  <mat-sidenav   mode="side" style="width: 400px">
     <app-filter></app-filter>
   </mat-sidenav>
   <mat-sidenav-content>
