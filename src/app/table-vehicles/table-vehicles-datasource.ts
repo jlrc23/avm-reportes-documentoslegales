@@ -1,8 +1,9 @@
 import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator, MatSort } from '@angular/material';
 import { map } from 'rxjs/operators';
-import {Observable, merge, BehaviorSubject} from 'rxjs';
+import {Observable, merge} from 'rxjs';
 import {VehicleInterface} from '../interfaces/vehicle.interface';
+import {VehicleReportDataService} from '../services/vehicle-report-data.service';
 
 /**
  * Data source for the Home view. This class should
@@ -11,16 +12,18 @@ import {VehicleInterface} from '../interfaces/vehicle.interface';
  */
 export class TableVehiclesDataSource extends DataSource<VehicleInterface> {
   data: VehicleInterface[] = [];
-  dataBehaviorSubject: BehaviorSubject<VehicleInterface[]> = new BehaviorSubject<VehicleInterface[]>([]);
 
-  constructor(private paginator: MatPaginator, private sort: MatSort) {
+
+  constructor(private paginator: MatPaginator,
+              private sort: MatSort,
+              private vehicleReportDataService:VehicleReportDataService
+              ) {
     super();
-  }
-
-  setVehicles( data: VehicleInterface[]) {
-    console.log('load data');
-    this.data = data;
-    this.dataBehaviorSubject.next(this.data);
+    /*
+    this.vehicleReportDataService.dataBehaviorSubject.asObservable().subscribe(resp=>{
+      console.log(`[TableVehiclesDataSource/constructor] Set Data`, resp);
+      this.data = resp.data;
+    });*/
   }
 
   /**
@@ -32,7 +35,7 @@ export class TableVehiclesDataSource extends DataSource<VehicleInterface> {
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
     const dataMutations = [
-      this.dataBehaviorSubject.asObservable(),
+      this.vehicleReportDataService.dataBehaviorSubject.asObservable(),
       this.paginator.page,
       this.sort.sortChange
     ];

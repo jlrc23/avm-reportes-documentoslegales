@@ -32,3 +32,6 @@ mat-sidenav-content.mat-drawer-container{
   background-color: white !important; /*#f2faed rgb(242, 250, 237);*/
   color:black;
 }
+.example-container{
+  height: 500px;
+}

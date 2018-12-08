@@ -2,6 +2,10 @@ import {FormControl} from '@angular/forms';
 import {TableVehiclesDataSource} from '../table-vehicles/table-vehicles-datasource';
 import {SettingsColumnsService} from './settings-columns.service';
 import {Injectable} from '@angular/core';
+import {VehicleReportDataService} from './vehicle-report-data.service';
+import {VehicleInterface} from '../interfaces/vehicle.interface';
+import {ActionsEnum} from '../enums/actions.enum';
+import {VehicleDataInterface} from '../interfaces/vehicle-data.interface';
 
 @Injectable()
 export class FilterFormService {
@@ -11,7 +15,7 @@ export class FilterFormService {
   public  dataSource: TableVehiclesDataSource;
   public allData;
 
-  constructor() {
+  constructor(public vehicleReportDataService:VehicleReportDataService) {
     this.fieldsFilterName.forEach(field=>{
       this.fieldsFilter[`${field}Filter`] = new FormControl();
       this.fieldsFilter[`${field}Filter`].valueChanges.subscribe(this.filterDataSubscribe(field));
@@ -65,14 +69,15 @@ export class FilterFormService {
         }
       });
     }
-    this.dataSource.setVehicles(allData);
+    const data = <VehicleDataInterface>{data:allData, action: ActionsEnum.filterlive};
+    this.vehicleReportDataService.setVehicles(data);
   }
 
   setTable( table){
     this.dataSource = table;
   }
 
-  setAllData(data:any[]){
+  setAllData(data:VehicleInterface[]){
     this.allData = [...data];
   }
 }

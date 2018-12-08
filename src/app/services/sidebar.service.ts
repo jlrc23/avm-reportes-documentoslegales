@@ -6,7 +6,7 @@ import {MatSidenav} from '@angular/material';
 })
 export class SidebarService {
   private sidebar: MatSidenav;
-  private show = false;
+  private show:boolean = true;
 
   constructor() { }
 
@@ -38,6 +38,11 @@ export class SidebarService {
     return this.show;
   }
   public setSidebar(sidebar){
-    this.sidebar = sidebar;
+    if(!this.sidebar && this.show){
+      this.sidebar = sidebar;
+      this.sidebar.open();
+    }else{
+      this.sidebar = sidebar;
+    }
   }
 }

@@ -16,6 +16,13 @@ export class VehicleReportService {
     return this.httpClient.get<VehicleInterface[]>(endPoint);
   }
 
+
+  postReport(data:any):Observable<VehicleInterface[]>{
+    const endPoint = environment.api + 'vehiclereport/getReportAjax';
+    console.log(`Request to EndPoint:`, endPoint);
+    return this.httpClient.post<VehicleInterface[]>(endPoint,data);
+  }
+
   getDocuments():Observable<any>{
     const endPoint = environment.api + 'vehiclereport/getCatalog?type=documentTypes';
     console.log(`Request to EndPoint:`, endPoint);
