@@ -19,14 +19,16 @@ import { IconsComponent } from './icons/icons.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FilterComponent } from './filter/filter.component';
 import { WizarReportComponent } from './wizar-report/wizar-report.component';
-
+import {PromptSelectorModule} from '../../projects/prompt-selector/src/lib/prompt-selector.module';
+import { FieldsSelectorComponent } from './fields-selector/fields-selector.component';
 @NgModule({
   declarations: [
     AppComponent,
     TableVehiclesComponent,
     IconsComponent,
     FilterComponent,
-    WizarReportComponent
+    WizarReportComponent,
+    FieldsSelectorComponent
   ],
   imports: [
     BrowserModule,
@@ -46,9 +48,11 @@ import { WizarReportComponent } from './wizar-report/wizar-report.component';
     MatCheckboxModule,
     MatSelectModule,
     MatButtonModule,
-    MatStepperModule
+    MatStepperModule,
+    PromptSelectorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+3

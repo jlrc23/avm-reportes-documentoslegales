@@ -3,8 +3,11 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {VehicleInterface} from '../interfaces/vehicle.interface';
+import {FieldInterface} from '../interfaces/field.interface';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class VehicleReportService {
 
   constructor(public  httpClient: HttpClient) { }
@@ -41,7 +44,7 @@ export class VehicleReportService {
     return this.httpClient.get<any>(endPoint);
   }
 
-  getFields():Observable<any>{
+  getFields():Observable<FieldInterface[]>{
     const endPoint = environment.api + 'vehiclereport/getCatalog?type=fields'
     console.log(`Request endpoint: `, endPoint);
     return this.httpClient.get<any>(endPoint);

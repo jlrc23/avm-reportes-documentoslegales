@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {VehicleReportService} from '../services/vehicle-report.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import {CatalogItemInterface} from '../interfaces/catalog-item.interface';
-import {TableVehiclesComponent} from '../table-vehicles/table-vehicles.component';
 
 @Component({
   selector: 'app-filter',

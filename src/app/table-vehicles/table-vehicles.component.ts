@@ -5,8 +5,6 @@ import {SettingsColumnsService} from '../services/settings-columns.service';
 import {FilterFormService} from '../services/filter-form.service';
 import {VehicleReportService} from '../services/vehicle-report.service';
 import {VehicleReportDataService} from '../services/vehicle-report-data.service';
-import {ActionsEnum} from '../enums/actions.enum';
-import {VehicleDataInterface} from '../interfaces/vehicle-data.interface';
 
 @Component({
   selector: 'app-table-vehicles',

@@ -2,30 +2,24 @@
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Campos del reporte</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-      </mat-form-field>
+      <app-fields-selector></app-fields-selector>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button style="float: right;" mat-button matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Filtros</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Address" formControlName="secondCtrl" required>
-      </mat-form-field>
+      <app-filter></app-filter>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button style="float: right" mat-button matStepperPrevious>Regresar</button>
+        <button style="float: right" mat-button matStepperNext>Siguiente</button>
       </div>
     </form>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Resumen</ng-template>
-
-
     <div>
       <button style="float: right" mat-raised-button color="primary" (click)="stepper.reset()">Generar Reporte</button>
     </div>

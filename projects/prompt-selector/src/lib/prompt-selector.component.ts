@@ -30,7 +30,7 @@ export class PromptSelectorComponent implements OnInit, OnChanges, OnDestroy {
     @Input() name: string = Math.random().toString(36).substr(2, 10); //("prompt"); // disabled add or remove items, only-read
     @Input() set order_by(value: string) {
         switch (value) {
-            case 'sort':
+            case 'no_sort':
                 this.order_selected = PromptSelectorComponent.noSort;
                 break;
             case 'id_desc':
