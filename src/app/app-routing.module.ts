@@ -1,7 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {WizarReportComponent} from './wizar-report/wizar-report.component';
+import {TableVehiclesComponent} from './table-vehicles/table-vehicles.component';
 
 const routes: Routes = [
+  {
+    component: WizarReportComponent,
+    path: ''
+  },
+  {
+    component: TableVehiclesComponent,
+    path: 'report'
+  }
 
 ];
 

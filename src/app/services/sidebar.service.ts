@@ -6,7 +6,7 @@ import {MatSidenav} from '@angular/material';
 })
 export class SidebarService {
   private sidebar: MatSidenav;
-  private show:boolean = true;
+  private show:boolean = false;
 
   constructor() { }
 

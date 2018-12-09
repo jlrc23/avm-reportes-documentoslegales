@@ -12,19 +12,21 @@ import {
   MatToolbarModule,
   MatIconModule,
   MatMenuModule,
-  MatSidenavModule, MatInputModule, MatCheckboxModule, MatSelectModule, MatButtonModule
+  MatSidenavModule, MatInputModule, MatCheckboxModule, MatSelectModule, MatButtonModule, MatStepperModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { IconsComponent } from './icons/icons.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FilterComponent } from './filter/filter.component';
+import { WizarReportComponent } from './wizar-report/wizar-report.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableVehiclesComponent,
     IconsComponent,
-    FilterComponent
+    FilterComponent,
+    WizarReportComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { FilterComponent } from './filter/filter.component';
     MatInputModule,
     MatCheckboxModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatStepperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

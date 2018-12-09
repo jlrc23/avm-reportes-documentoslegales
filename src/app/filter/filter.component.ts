@@ -15,6 +15,7 @@ export class FilterComponent implements OnInit {
   public typesDocumentsCatalog: CatalogItemInterface[] = [];
   public ownersCatalog:CatalogItemInterface[] = [];
   public frmFilter: FormGroup;
+  public fields: any;
 
   constructor(public vehicleReportService:VehicleReportService) {
     this.frmFilter = new FormGroup({
@@ -43,6 +44,9 @@ export class FilterComponent implements OnInit {
         this.typesDocumentsCatalog.push({id, description:resp[i]});
       }
     });
+    this.vehicleReportService.getFields().subscribe(resp=>{
+      this.fields = resp;
+    })
   }
 
   sendForm(frmFilterValues){

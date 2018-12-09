@@ -23,14 +23,13 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
+
 <mat-sidenav-container class="example-container">
   <mat-sidenav   mode="side" style="width: 400px">
     <app-filter></app-filter>
   </mat-sidenav>
   <mat-sidenav-content>
-
-    <app-table-vehicles ></app-table-vehicles>
-
+   <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
 
