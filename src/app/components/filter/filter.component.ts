@@ -14,12 +14,14 @@ export class FilterComponent implements OnInit {
   public typesDocumentsCatalog: CatalogItemInterface[] = [];
   public ownersCatalog: CatalogItemInterface[] = [];
   public frmFilter: FormGroup;
+  public typeFilter:FormControl;
 
   constructor(
     public vehicleReportService: VehicleReportService,
     public wizardDataService: WizardDataService
 
   ) {
+    this.typeFilter = new FormControl();
     this.frmFilter = new FormGroup({
       documents: new FormControl(),
       typesDocument: new FormControl(),
@@ -52,6 +54,11 @@ export class FilterComponent implements OnInit {
           this.typesDocumentsCatalog.push({id, description: resp[i]});
         }
       }
+    });
+
+    this.typeFilter.valueChanges.subscribe(value=>{
+      this.wizardDataService.typeFilter = value;
+      console.log(`[RegistrationComponent/ngOnInit/typeFilter]`, value);
     });
 
     this.frmFilter.valueChanges.subscribe(value => {

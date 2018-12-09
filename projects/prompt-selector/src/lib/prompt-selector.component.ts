@@ -25,7 +25,7 @@ export class PromptSelectorComponent implements OnInit, OnChanges, OnDestroy {
     @Input() title: string = "";
     @Input() multi: boolean = false; // true = allow more that one item
     @Input() rules: RulesPrompt = null;
-    @Input() searchTitle: string = "buscar";
+    @Input() searchTitle: string = "Buscar";
     @Input() maxSelected: number = -1;
     @Input() name: string = Math.random().toString(36).substr(2, 10); //("prompt"); // disabled add or remove items, only-read
     @Input() set order_by(value: string) {

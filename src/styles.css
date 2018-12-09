@@ -33,5 +33,5 @@ mat-sidenav-content.mat-drawer-container{
   color:black;
 }
 .example-container{
-  height: 500px;
+  min-height: 500px;
 }

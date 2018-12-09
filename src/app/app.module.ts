@@ -12,7 +12,7 @@ import {
   MatToolbarModule,
   MatIconModule,
   MatMenuModule,
-  MatSidenavModule, MatInputModule, MatCheckboxModule, MatSelectModule, MatButtonModule, MatStepperModule
+  MatSidenavModule, MatInputModule, MatCheckboxModule, MatSelectModule, MatButtonModule, MatStepperModule, MatRadioModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { IconsComponent } from './icons/icons.component';
@@ -49,7 +49,8 @@ import { FieldsSelectorComponent } from './components/fields-selector/fields-sel
     MatSelectModule,
     MatButtonModule,
     MatStepperModule,
-    PromptSelectorModule
+    PromptSelectorModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

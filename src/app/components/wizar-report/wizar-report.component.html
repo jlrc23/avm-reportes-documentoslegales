@@ -27,7 +27,13 @@
           <li *ngFor="let item of wizardDataService.fieldsSelecteds">{{item.text}}</li>
         </ul>
       </div>
-      <div class="col" *ngIf="wizardDataService.filters" >
+      <div class="col"  *ngIf="wizardDataService.typeFilter==0" >
+        <i>Sin filtros</i>
+      </div>
+      <div class="col"  *ngIf="wizardDataService.typeFilter==1" >
+        Solo se va mostrar un documento legal por vehiculo(es el mas reciente).
+      </div>
+      <div class="col" *ngIf="wizardDataService.typeFilter==2 && wizardDataService.filters" >
         <b>Filtros:</b>
         <div class="row" *ngIf=" wizardDataService.filters['documents']">
           <div  class="col">

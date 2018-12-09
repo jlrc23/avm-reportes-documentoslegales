@@ -6,6 +6,7 @@ import {FieldInterface} from '../interfaces/field.interface';
 })
 export class WizardDataService {
   fieldsSelecteds: FieldInterface[];
+  typeFilter: number;
   filters: any;
 
 }
