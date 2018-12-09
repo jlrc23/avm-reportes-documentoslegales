@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {WizardDataService} from '../../services/wizard-data.service';
 
 @Component({
   selector: 'app-wizar-report',
@@ -11,7 +12,10 @@ export class WizarReportComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(
+    public wizardDataService: WizardDataService,
+    private _formBuilder: FormBuilder
+  ) {}
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({

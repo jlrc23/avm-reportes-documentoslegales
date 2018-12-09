@@ -2,8 +2,8 @@ import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator, MatSort } from '@angular/material';
 import { map } from 'rxjs/operators';
 import {Observable, merge} from 'rxjs';
-import {VehicleInterface} from '../interfaces/vehicle.interface';
-import {VehicleReportDataService} from '../services/vehicle-report-data.service';
+import {VehicleInterface} from '../../interfaces/vehicle.interface';
+import {VehicleReportDataService} from '../../services/vehicle-report-data.service';
 
 /**
  * Data source for the Home view. This class should

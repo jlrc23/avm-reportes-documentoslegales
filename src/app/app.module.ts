@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TableVehiclesComponent } from './table-vehicles/table-vehicles.component';
+import { TableVehiclesComponent } from './components/table-vehicles/table-vehicles.component';
 import {
   MatTableModule,
   MatPaginatorModule,
@@ -17,10 +17,10 @@ import {
 import { HttpClientModule } from '@angular/common/http';
 import { IconsComponent } from './icons/icons.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { FilterComponent } from './filter/filter.component';
-import { WizarReportComponent } from './wizar-report/wizar-report.component';
+import { FilterComponent } from './components/filter/filter.component';
+import { WizarReportComponent } from './components/wizar-report/wizar-report.component';
 import {PromptSelectorModule} from '../../projects/prompt-selector/src/lib/prompt-selector.module';
-import { FieldsSelectorComponent } from './fields-selector/fields-selector.component';
+import { FieldsSelectorComponent } from './components/fields-selector/fields-selector.component';
 @NgModule({
   declarations: [
     AppComponent,

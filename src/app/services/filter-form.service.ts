@@ -1,5 +1,5 @@
 import {FormControl} from '@angular/forms';
-import {TableVehiclesDataSource} from '../table-vehicles/table-vehicles-datasource';
+import {TableVehiclesDataSource} from '../components/table-vehicles/table-vehicles-datasource';
 import {SettingsColumnsService} from './settings-columns.service';
 import {Injectable} from '@angular/core';
 import {VehicleReportDataService} from './vehicle-report-data.service';

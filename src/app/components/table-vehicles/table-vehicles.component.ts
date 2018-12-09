@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
 import { TableVehiclesDataSource } from './table-vehicles-datasource';
-import {SettingsColumnsService} from '../services/settings-columns.service';
-import {FilterFormService} from '../services/filter-form.service';
-import {VehicleReportService} from '../services/vehicle-report.service';
-import {VehicleReportDataService} from '../services/vehicle-report-data.service';
+import {SettingsColumnsService} from '../../services/settings-columns.service';
+import {FilterFormService} from '../../services/filter-form.service';
+import {VehicleReportService} from '../../services/vehicle-report.service';
+import {VehicleReportDataService} from '../../services/vehicle-report-data.service';
 
 @Component({
   selector: 'app-table-vehicles',

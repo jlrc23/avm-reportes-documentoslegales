@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {VehicleReportService} from '../services/vehicle-report.service';
-import {SelectItemBean} from '../../../projects/prompt-selector/src/lib/select-item-bean';
+import {VehicleReportService} from '../../services/vehicle-report.service';
+import {SelectItemBean} from '../../../../projects/prompt-selector/src/lib/select-item-bean';
+import {WizardDataService} from '../../services/wizard-data.service';
 
 @Component({
   selector: 'app-fields-selector',
@@ -11,7 +12,10 @@ export class FieldsSelectorComponent implements OnInit {
   fields;
   fieldsLists:SelectItemBean[];
   loading:boolean;
-  constructor(public vehicleReportService:VehicleReportService) { }
+  constructor(
+    public wizardDataService: WizardDataService,
+    public vehicleReportService:VehicleReportService
+  ) { }
 
   ngOnInit() {
     this.loading = true;
@@ -21,6 +25,11 @@ export class FieldsSelectorComponent implements OnInit {
       this.fieldsLists = this.fields.map((item)=>{ return <SelectItemBean>{id:item.id, text:item.description, value:item.fieldName } });
       console.log(resp);
     })
+  }
+
+  onChangesFieldsSelected(values){
+    console.log(`[FieldsSelectorComponent::onChangesFieldsSelected] values: `, values);
+    this.wizardDataService.fieldsSelecteds = values;
   }
 
 }
