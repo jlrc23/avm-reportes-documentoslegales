@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   constructor(public sidebarService: SidebarService,
               public  settingsColumnsService: SettingsColumnsService,
               public filterFormService: FilterFormService,
-              private router: Router
+              public router: Router
               ) { }
 
   ngOnInit(): void {
@@ -49,6 +49,7 @@ export class AppComponent implements OnInit {
     a.click();
     return 'success';
   }
+
   back2Home(){
     this.router.navigate(["/"]);
   }

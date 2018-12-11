@@ -9,11 +9,11 @@ import {WizardDataInterface} from '../interfaces/wizard-data.interface';
 })
 export class WizardDataService {
   @LocalStorage("fieldsSelecteds")
-  private fieldsSelecteds: SelectItemBean[];
+  public fieldsSelecteds: SelectItemBean[];
   @LocalStorage("typeFilter")
-  private typeFilter: number;
+  public typeFilter: number;
   @LocalStorage("filters")
-  private filters: any;
+  public filters: any;
 
   public fieldsSubject: BehaviorSubject<SelectItemBean[]> = new BehaviorSubject<SelectItemBean[]>(this.fieldsSelecteds);
   public typeFilterSubject: BehaviorSubject<number> = new BehaviorSubject<number>(this.typeFilter);

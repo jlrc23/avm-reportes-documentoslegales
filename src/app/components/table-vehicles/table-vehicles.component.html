@@ -16,16 +16,16 @@
 
 
 
-    <!--<ng-container *ngFor="let col of settingsColumnsService.displayedColumns" matColumnDef="{{col}}Filter">-->
-      <!--<td mat-header-cell *matHeaderCellDef >-->
-        <!--<mat-form-field>-->
-          <!--<input type="text" matInput  class="form-control" [formControl]="filterFormService.getFilter(col)" />-->
-        <!--</mat-form-field>-->
-      <!--</td>-->
-    <!--</ng-container>-->
+    <ng-container *ngFor="let col of settingsColumnsService.displayedColumns" matColumnDef="{{col}}Filter">
+      <td mat-header-cell *matHeaderCellDef >
+        <mat-form-field>
+          <input type="text" matInput  class="form-control" [formControl]="filterFormService.getFilter(col)" />
+        </mat-form-field>
+      </td>
+    </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="settingsColumnsService.displayedColumns"></tr>
-    <!--<tr mat-header-row *matHeaderRowDef="settingsColumnsService.displayedFilterColumns" [ngClass]="{'invisible':!settingsColumnsService.showFilter}"></tr>-->
+    <tr mat-header-row *matHeaderRowDef="settingsColumnsService.displayedFilterColumns" [ngClass]="{'invisible':!settingsColumnsService.showFilter}"></tr>
     <tr mat-row *matRowDef="let row; columns: settingsColumnsService.displayedColumns;"></tr>
   </table>
 
