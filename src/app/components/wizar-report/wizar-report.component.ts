@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {WizardDataService} from '../../services/wizard-data.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-wizar-report',
@@ -14,7 +15,8 @@ export class WizarReportComponent implements OnInit {
 
   constructor(
     public wizardDataService: WizardDataService,
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    public router: Router
   ) {}
 
   ngOnInit() {
@@ -26,4 +28,8 @@ export class WizarReportComponent implements OnInit {
     });
   }
 
+  makeReporte(){
+    this.router.navigate(["report"]);
+
+  }
 }

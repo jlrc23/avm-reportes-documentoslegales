@@ -22,14 +22,17 @@ export class FieldsSelectorComponent implements OnInit {
     this.vehicleReportService.getFields().subscribe(resp=>{
       this.loading = false;
       this.fields = resp;
-      this.fieldsLists = this.fields.map((item)=>{ return <SelectItemBean>{id:item.id, text:item.description, value:item.fieldName } });
+      this.fieldsLists = this.fields.map((item)=>{
+        const value ={name: item.fieldName, key:item.fieldKey };
+        return <SelectItemBean>{id:item.id, text:item.description, value };
+      });
       console.log(resp);
     })
   }
 
   onChangesFieldsSelected(values){
     console.log(`[FieldsSelectorComponent::onChangesFieldsSelected] values: `, values);
-    this.wizardDataService.fieldsSelecteds = values;
+    this.wizardDataService.setFields(values);
   }
 
 }

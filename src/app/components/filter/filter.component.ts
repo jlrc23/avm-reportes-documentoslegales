@@ -57,12 +57,12 @@ export class FilterComponent implements OnInit {
     });
 
     this.typeFilter.valueChanges.subscribe(value=>{
-      this.wizardDataService.typeFilter = value;
+      this.wizardDataService.setTypeFilter(value);
       console.log(`[RegistrationComponent/ngOnInit/typeFilter]`, value);
     });
 
     this.frmFilter.valueChanges.subscribe(value => {
-      this.wizardDataService.filters = value;
+      this.wizardDataService.setFilters(value);
       console.log(`[RegistrationComponent/ngOnInit/registrationForm::valuesChanges] Value: `, value);
     });
   }

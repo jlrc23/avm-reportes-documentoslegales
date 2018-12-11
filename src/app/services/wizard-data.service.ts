@@ -1,12 +1,45 @@
 import { Injectable } from '@angular/core';
-import {FieldInterface} from '../interfaces/field.interface';
+import {SelectItemBean} from '../../../projects/prompt-selector/src/lib/select-item-bean';
+import {LocalStorage} from 'ngx-webstorage';
+import {BehaviorSubject} from 'rxjs';
+import {WizardDataInterface} from '../interfaces/wizard-data.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WizardDataService {
-  fieldsSelecteds: FieldInterface[];
-  typeFilter: number;
-  filters: any;
+  @LocalStorage("fieldsSelecteds")
+  private fieldsSelecteds: SelectItemBean[];
+  @LocalStorage("typeFilter")
+  private typeFilter: number;
+  @LocalStorage("filters")
+  private filters: any;
+
+  public fieldsSubject: BehaviorSubject<SelectItemBean[]> = new BehaviorSubject<SelectItemBean[]>(this.fieldsSelecteds);
+  public typeFilterSubject: BehaviorSubject<number> = new BehaviorSubject<number>(this.typeFilter);
+  public filtersSubject: BehaviorSubject<any> = new BehaviorSubject<any>(this.filters);
+
+  getData():WizardDataInterface{
+    return <WizardDataInterface>{
+      fieldsSelecteds: this.fieldsSelecteds,
+      typeFilter: this.typeFilter,
+      filters: this.filters
+    }
+  }
+
+  setFields(fieldsSelecteds:SelectItemBean[]){
+    this.fieldsSelecteds = [...fieldsSelecteds];
+    this.fieldsSubject.next(this.fieldsSelecteds);
+  }
+
+  setTypeFilter(typeFilter:number){
+    this.typeFilter = typeFilter;
+    this.typeFilterSubject.next(this.typeFilter);
+  }
+
+  setFilters(filters:any){
+    this.filters = [...filters];
+    this.filtersSubject.next(this.filters);
+  }
 
 }

@@ -69,7 +69,7 @@ export class FilterFormService {
         }
       });
     }
-    const data = <VehicleDataInterface>{data:allData, action: ActionsEnum.filterlive};
+    const data = allData;
     this.vehicleReportDataService.setVehicles(data);
   }
 
@@ -77,7 +77,7 @@ export class FilterFormService {
     this.dataSource = table;
   }
 
-  setAllData(data:VehicleInterface[]){
+  setAllData(data:any){
     this.allData = [...data];
   }
 }

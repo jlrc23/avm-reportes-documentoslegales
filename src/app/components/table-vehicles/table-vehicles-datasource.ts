@@ -11,19 +11,20 @@ import {VehicleReportDataService} from '../../services/vehicle-report-data.servi
  * (including sorting, pagination, and filtering).
  */
 export class TableVehiclesDataSource extends DataSource<VehicleInterface> {
-  data: VehicleInterface[] = [];
-
+  data: any ;
 
   constructor(private paginator: MatPaginator,
               private sort: MatSort,
               private vehicleReportDataService:VehicleReportDataService
               ) {
     super();
-    /*
+    this.data = [];
     this.vehicleReportDataService.dataBehaviorSubject.asObservable().subscribe(resp=>{
-      console.log(`[TableVehiclesDataSource/constructor] Set Data`, resp);
-      this.data = resp.data;
-    });*/
+      if(Array.isArray(resp)){
+        this.data = resp;
+        console.log(`Data from datasource: `, this.data);
+      }
+    });
   }
 
   /**

@@ -1,66 +1,31 @@
+
 <div class="mat-elevation-z8">
   <table  mat-table class="full-width-table" [dataSource]="dataSource" matSort aria-label="Elements">
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>#</th>
-      <td mat-cell *matCellDef="let row">{{row.id}}</td>
-    </ng-container>
-    <ng-container matColumnDef="year">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Año</th>
-      <td mat-cell *matCellDef="let row">{{row.year}}</td>
-    </ng-container>
-    <ng-container matColumnDef="economic_number">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>ECO</th>
-      <td mat-cell *matCellDef="let row">{{row.economic_number}}</td>
-    </ng-container>
-    <ng-container matColumnDef="serial_number">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Serie</th>
-      <td mat-cell *matCellDef="let row">{{row.serial_number}}</td>
-    </ng-container>
-    <ng-container matColumnDef="plates">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Placas</th>
-      <td mat-cell *matCellDef="let row">{{row.plates}}</td>
-    </ng-container>
-    <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Documento</th>
-      <td mat-cell *matCellDef="let row">{{row.document_type}}</td>
-    </ng-container>
-    <ng-container matColumnDef="document_type">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo de documento</th>
-      <td mat-cell *matCellDef="let row">{{row.status}}</td>
-    </ng-container>
-    <ng-container matColumnDef="document_number">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Folio</th>
-      <td mat-cell *matCellDef="let row">{{row.document_number}}</td>
-    </ng-container>
-    <ng-container matColumnDef="amount">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Monto</th>
-      <td mat-cell *matCellDef="let row">{{row.amount | currency: (row.type_currency == 1? 'USD':'MXN'):'code'}} </td>
-    </ng-container>
-    <ng-container matColumnDef="created">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha</th>
-      <td mat-cell *matCellDef="let row">{{row.created | date}}</td>
-    </ng-container>
-    <ng-container matColumnDef="issued">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Emitida por</th>
-      <td mat-cell *matCellDef="let row">{{row.issued}}</td>
-    </ng-container>
-    <ng-container matColumnDef="owner">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>A favor de</th>
-      <td mat-cell *matCellDef="let row">{{row.owner}}</td>
-    </ng-container>
+    <ng-container *ngFor="let item of wizardDataService.fieldsSelecteds" [matColumnDef]="item.value.name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{item.value.name}}</th>
+      <td mat-cell *matCellDef="let row">
+        <div [ngSwitch]="item.value.name">
+          <span *ngSwitchCase="'Fecha'">{{row[item.value.name] | date}}</span>
+          <span *ngSwitchCase="'Monto'"> {{row[item.value.name]   | currency}}</span>
+          <span *ngSwitchDefault>{{row[item.value.name]}}</span>
 
-    <ng-container *ngFor="let col of settingsColumnsService.displayedColumns" matColumnDef="{{col}}Filter">
-      <td mat-header-cell *matHeaderCellDef >
-        <mat-form-field>
-          <input type="text" matInput  class="form-control" [formControl]="filterFormService.getFilter(col)" />
-        </mat-form-field>
-
+        </div>
 
       </td>
     </ng-container>
 
+
+
+    <!--<ng-container *ngFor="let col of settingsColumnsService.displayedColumns" matColumnDef="{{col}}Filter">-->
+      <!--<td mat-header-cell *matHeaderCellDef >-->
+        <!--<mat-form-field>-->
+          <!--<input type="text" matInput  class="form-control" [formControl]="filterFormService.getFilter(col)" />-->
+        <!--</mat-form-field>-->
+      <!--</td>-->
+    <!--</ng-container>-->
+
     <tr mat-header-row *matHeaderRowDef="settingsColumnsService.displayedColumns"></tr>
-    <tr mat-header-row *matHeaderRowDef="settingsColumnsService.displayedFilterColumns" [ngClass]="{'invisible':!settingsColumnsService.showFilter}"></tr>
+    <!--<tr mat-header-row *matHeaderRowDef="settingsColumnsService.displayedFilterColumns" [ngClass]="{'invisible':!settingsColumnsService.showFilter}"></tr>-->
     <tr mat-row *matRowDef="let row; columns: settingsColumnsService.displayedColumns;"></tr>
   </table>
 

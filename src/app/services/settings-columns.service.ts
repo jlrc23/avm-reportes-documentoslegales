@@ -2,10 +2,12 @@ import {MatCheckboxChange, MatSlideToggleChange} from '@angular/material';
 import {Injectable} from '@angular/core';
 import {SettingDisplayColumnInterface} from '../interfaces/setting-display-column.interface';
 import {SettingDisplayColumn} from '../class/setting-display-column';
+import {WizardDataService} from './wizard-data.service';
 
 @Injectable()
-export class SettingsColumnsService { //'id',
-  public static ALL_COLUMNS: Array<string> = [ 'economic_number', 'year', 'serial_number', 'plates', 'status',  'document_type', 'document_number',  'amount', 'created', 'issued',    'owner'];
+export class SettingsColumnsService {
+
+  public static ALL_COLUMNS: Array<string> = [];
   readonly loggerNamespaceClass = 'SettingsColumnsService';
 
   settingsDisplayedColumns: Map<string, SettingDisplayColumnInterface> = new Map<string, SettingDisplayColumnInterface>();
@@ -17,7 +19,13 @@ export class SettingsColumnsService { //'id',
     return SettingsColumnsService.ALL_COLUMNS;
   }
 
-  constructor() {
+  constructor(public wizardDataService: WizardDataService) {
+    this.wizardDataService.fieldsSubject.asObservable().subscribe(resp=>{
+      SettingsColumnsService.ALL_COLUMNS = resp.map(item=> item.value.name);
+    });
+
+
+
     for(const column of this.allColumns ){
       console.log(`[SettingsColumnsService] column:`, column);
       const colSettings =  new SettingDisplayColumn(column,column);
