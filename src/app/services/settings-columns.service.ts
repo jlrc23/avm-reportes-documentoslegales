@@ -29,8 +29,6 @@ export class SettingsColumnsService {
     for(const column of this.allColumns ){
       console.log(`[SettingsColumnsService] column:`, column);
       const colSettings =  new SettingDisplayColumn(column,column);
-      if(colSettings.title == 'serial_number')
-        colSettings.visible = false;
       this.settingsDisplayedColumns.set(column,colSettings);
     }
     this.displayedColumns = SettingsColumnsService.ALL_COLUMNS.filter((displayColumn) => this.settingsDisplayedColumns.get(displayColumn).visible);

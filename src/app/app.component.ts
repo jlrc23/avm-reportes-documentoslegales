@@ -4,6 +4,7 @@ import {SidebarService} from './services/sidebar.service';
 import {SettingsColumnsService} from './services/settings-columns.service';
 import {FilterFormService} from './services/filter-form.service';
 import {Convert2CSV} from './functions/convert2csv';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,8 @@ export class AppComponent implements OnInit {
 
   constructor(public sidebarService: SidebarService,
               public  settingsColumnsService: SettingsColumnsService,
-              public filterFormService: FilterFormService
+              public filterFormService: FilterFormService,
+              private router: Router
               ) { }
 
   ngOnInit(): void {
@@ -46,6 +48,9 @@ export class AppComponent implements OnInit {
     a.download = 'vehicles.csv';/* your file name*/
     a.click();
     return 'success';
+  }
+  back2Home(){
+    this.router.navigate(["/"]);
   }
   
 }
