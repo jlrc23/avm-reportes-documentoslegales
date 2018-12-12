@@ -5,6 +5,7 @@ import {SettingsColumnsService} from './services/settings-columns.service';
 import {FilterFormService} from './services/filter-form.service';
 import {Convert2CSV} from './functions/convert2csv';
 import {Router} from '@angular/router';
+import {VehicleReportDataService} from './services/vehicle-report-data.service';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,7 @@ export class AppComponent implements OnInit {
 
   constructor(public sidebarService: SidebarService,
               public  settingsColumnsService: SettingsColumnsService,
-              public filterFormService: FilterFormService,
+              public vehicleReportDataService: VehicleReportDataService,
               public router: Router
               ) { }
 
@@ -38,7 +39,7 @@ export class AppComponent implements OnInit {
   }
 
   download(){
-    let csvData = Convert2CSV(this.filterFormService.allData);
+    let csvData = Convert2CSV(this.vehicleReportDataService.dataBehaviorSubject.getValue());
     let a = document.createElement("a");
     a.setAttribute('style', 'display:none;');
     document.body.appendChild(a);

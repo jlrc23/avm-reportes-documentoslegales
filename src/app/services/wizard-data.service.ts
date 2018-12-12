@@ -10,19 +10,15 @@ import {WizardDataInterface} from '../interfaces/wizard-data.interface';
 export class WizardDataService {
   @LocalStorage("fieldsSelecteds")
   public fieldsSelecteds: SelectItemBean[];
-  @LocalStorage("typeFilter")
-  public typeFilter: number;
+
   @LocalStorage("filters")
   public filters: any;
 
   public fieldsSubject: BehaviorSubject<SelectItemBean[]> = new BehaviorSubject<SelectItemBean[]>(this.fieldsSelecteds);
-  public typeFilterSubject: BehaviorSubject<number> = new BehaviorSubject<number>(this.typeFilter);
-  public filtersSubject: BehaviorSubject<any> = new BehaviorSubject<any>(this.filters);
 
   getData():WizardDataInterface{
     return <WizardDataInterface>{
       fieldsSelecteds: this.fieldsSelecteds,
-      typeFilter: this.typeFilter,
       filters: this.filters
     }
   }
@@ -32,14 +28,9 @@ export class WizardDataService {
     this.fieldsSubject.next(this.fieldsSelecteds);
   }
 
-  setTypeFilter(typeFilter:number){
-    this.typeFilter = typeFilter;
-    this.typeFilterSubject.next(this.typeFilter);
-  }
 
   setFilters(filters:any){
-    this.filters = [...filters];
-    this.filtersSubject.next(this.filters);
+    this.filters = filters;
   }
 
 }

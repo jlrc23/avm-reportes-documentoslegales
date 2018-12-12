@@ -27,16 +27,10 @@
           <li *ngFor="let item of wizardDataService.fieldsSelecteds">{{item.text}}</li>
         </ul>
       </div>
-      <div class="col"  *ngIf="wizardDataService.typeFilter==0" >
-        <i>Sin filtros</i>
-      </div>
-      <div class="col"  *ngIf="wizardDataService.typeFilter==1" >
-        Solo se va mostrar un documento legal por vehiculo(es el mas reciente).
-      </div>
-      <div class="col" *ngIf="wizardDataService.typeFilter==2 && wizardDataService.filters" >
+      <div class="col" *ngIf="wizardDataService.filters; else nohavefilter">
         <b>Filtros:</b>
         <div class="row" *ngIf=" wizardDataService.filters['documents']">
-          <div  class="col">
+          <div class="col">
             Documentos Seleccionados:
             <ul>
               <li *ngFor="let doc of wizardDataService.filters['documents']">{{doc.description}}</li>
@@ -44,22 +38,28 @@
           </div>
         </div>
         <div class="row" *ngIf="wizardDataService.filters['owners']">
-            <div  class="col">
-              A favor de:
-              <ul>
-                <li *ngFor="let owner of wizardDataService.filters['owners']">{{owner.description}}</li>
-              </ul>
-            </div>
+          <div class="col">
+            A favor de:
+            <ul>
+              <li *ngFor="let owner of wizardDataService.filters['owners']">{{owner.description}}</li>
+            </ul>
           </div>
-          <div class="row" *ngIf="wizardDataService.filters['typesDocument']">
-              <div  class="col">
-                Tipos de documentos:
-                <ul>
-                  <li *ngFor="let typeDoc of wizardDataService.filters['typesDocument']">{{typeDoc.description}}</li>
-                </ul>
-              </div>
-            </div>
+        </div>
+        <div class="row" *ngIf="wizardDataService.filters['typesDocument']">
+          <div class="col">
+            Tipos de documentos:
+            <ul>
+              <li *ngFor="let typeDoc of wizardDataService.filters['typesDocument']">{{typeDoc.description}}</li>
+            </ul>
+          </div>
+        </div>
       </div>
+
+      <ng-template #nohavefilter>
+        <div class="col" >
+          <i>No hay filtros definidos</i>
+        </div>
+      </ng-template>
     </div>
 
     <div>

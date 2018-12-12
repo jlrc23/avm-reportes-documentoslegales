@@ -25,14 +25,14 @@ export class TableVehiclesComponent implements OnInit {
   ngOnInit() {
     this.settingsColumnsService.displayedColumns = this.wizardDataService.fieldsSelecteds.map(item => item.value.name);
     this.dataSource = new TableVehiclesDataSource(this.paginator, this.sort, this.vehicleReportDataService);
-    this.filterFormService.setTable(this.dataSource);
+    // this.filterFormService.setTable(this.dataSource);
     console.log(`Request: `, this.wizardDataService.getData());
     this.vehicleReportService.postReport(this.wizardDataService.getData()).subscribe((resp: any) => {
       console.log(`Recived typeResponse: ${typeof resp} Response:`, resp);
       this.allData = JSON.parse(resp);
       this.vehicleReportDataService.setVehicles(this.allData);
-      this.filterFormService.setAllData(this.allData);
-      this.filterFormService.filterAllData();
+      // this.filterFormService.setAllData(this.allData);
+      // this.filterFormService.filterAllData();
     });
   }
 
@@ -40,7 +40,7 @@ export class TableVehiclesComponent implements OnInit {
     public vehicleReportService: VehicleReportService,
     public wizardDataService:WizardDataService,
     public settingsColumnsService: SettingsColumnsService,
-    public filterFormService: FilterFormService,
+    // public filterFormService: FilterFormService,
     public vehicleReportDataService: VehicleReportDataService
     ) { }
 }

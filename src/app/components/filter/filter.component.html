@@ -1,18 +1,5 @@
 <div class="wrapper-filter">
-  <div class="row">
-    <div class="col">
-      Tipo de filtro: <br>
-      <mat-radio-group [formControl]="typeFilter" >
-        <!--<mat-radio-button value="0">Sin filtros</mat-radio-button>-->
-        <!--<br>-->
-        <mat-radio-button value="1">Solo mostrar el documento legal mas reciente</mat-radio-button>
-        <br>
-        <mat-radio-button value="2">Definir otros filtros</mat-radio-button>
-      </mat-radio-group>
-    </div>
-  </div>
-  <form class="d-none" [formGroup]="frmFilter" id="frmFilter"  [ngClass]="{'d-block': typeFilter.value==2}">
-
+  <form [formGroup]="frmFilter" id="frmFilter">
     <div class="row">
       <div class="col">
         <mat-form-field>
@@ -39,13 +26,6 @@
         </mat-form-field>
       </div>
     </div>
-
-    <div class="row">
-      <div class="col">
-        <button >Submit</button>
-      </div>
-    </div>
-
   </form>
 
 </div>

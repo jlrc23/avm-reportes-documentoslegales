@@ -1,4 +1,5 @@
 export function Convert2CSV(objArray) {
+  console.log(`Convert2CSV data: `, objArray);
   let array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
   let str = '';
   let row = "";
@@ -14,8 +15,7 @@ export function Convert2CSV(objArray) {
   for (var i = 0; i < array.length; i++) {
     var line = '';
     for (var index in array[i]) {
-      if (line != '') line += ','
-
+      if (line != '') line += ',';
       line += array[i][index];
     }
     str += line + '\r\n';

@@ -25,7 +25,7 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="settingsColumnsService.displayedColumns"></tr>
-    <tr mat-header-row *matHeaderRowDef="settingsColumnsService.displayedFilterColumns" [ngClass]="{'invisible':!settingsColumnsService.showFilter}"></tr>
+    <!--<tr mat-header-row *matHeaderRowDef="settingsColumnsService.displayedFilterColumns" [ngClass]="{'invisible':!settingsColumnsService.showFilter}"></tr>-->
     <tr mat-row *matRowDef="let row; columns: settingsColumnsService.displayedColumns;"></tr>
   </table>
 
