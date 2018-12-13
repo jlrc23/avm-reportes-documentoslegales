@@ -76,10 +76,48 @@ export class TableVehiclesDataSource extends DataSource<VehicleInterface> {
     return data.sort((a, b) => {
       const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {
-        case 'id': return compare(+a.id, +b.id, isAsc);
-        case 'economic_number': return compare(+a.economic_number, +b.economic_number, isAsc);
-        case 'year': return compare(+a.year, +b.year, isAsc);
-        case 'amount': return compare(+a.amount, +b.amount, isAsc);
+        case "Año":
+          return compare(+a["Año"], +b["Año"], isAsc);
+          break;
+        case "Número Economico":
+          return compare(+a["Número Economico"], +b["Número Economico"], isAsc);
+          break;
+        case  "Número de Serie":
+          return compare(a["Número de Serie"], b["Número de Serie"], isAsc);
+          break;
+        case  "Placas":
+          return compare(a["Placas"], b["Placas"], isAsc);
+          break;
+        case  "Tipo de Documento":
+          return compare(a["Tipo de Documento"], b["Tipo de Documento"], isAsc);
+          break;
+        case  "Documento":
+          return compare(a["Documento"], b["Documento"], isAsc);
+          break;
+        case  "Folio":
+          return compare(+a["Folio"], +b["Folio"], isAsc);
+          break;
+        case  "Moneda":
+          return compare(a["Moneda"], b["Moneda"], isAsc);
+          break;
+        case  "Monto":
+          return compare(+a["Monto"], +b["Monto"], isAsc);
+          break;
+        case  "Fecha":
+          return compareDate(a["Fecha"], b["Fecha"], isAsc);
+          break;
+        case  "Emitida por":
+          return compare(a["Emitida por"], b["Emitida por"], isAsc);
+          break;
+        case  "A Favor de":
+          return compare(a["A Favor de"], b["A Favor de"], isAsc);
+          break;
+
+        //
+        // case 'folio':
+        // case 'economic_number': return compare(+a.economic_number, +b.economic_number, isAsc);
+        // case 'year': return compare(+a.year, +b.year, isAsc);
+        // case 'amount': return compare(+a.amount, +b.amount, isAsc);
         default: return 0;
       }
     });
@@ -89,4 +127,12 @@ export class TableVehiclesDataSource extends DataSource<VehicleInterface> {
 /** Simple sort comparator for example ID/Name columns (for client-side sorting). */
 function compare(a, b, isAsc) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+}
+
+
+function compareDate(a, b, isAsc) {
+  const dateA = new Date(a);
+  const dateB = new Date(b);
+  const result =  dateB.getTime() - dateA.getTime();
+  return (result) * (isAsc ? 1 : -1);
 }
