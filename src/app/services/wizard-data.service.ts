@@ -8,10 +8,8 @@ import {WizardDataInterface} from '../interfaces/wizard-data.interface';
   providedIn: 'root'
 })
 export class WizardDataService {
-  @LocalStorage("fieldsSelecteds")
   public fieldsSelecteds: SelectItemBean[];
 
-  @LocalStorage("filters")
   public filters: any;
 
   public fieldsSubject: BehaviorSubject<SelectItemBean[]> = new BehaviorSubject<SelectItemBean[]>(this.fieldsSelecteds);
